@@ -1,5 +1,5 @@
 import React from 'react';
-import { Animated, GestureResponderEvent, ViewStyle } from 'react-native';
+import { Animated, GestureResponderEvent, TouchableOpacityProps, ViewStyle } from 'react-native';
 export declare type ActionSheetProps = {
     children: React.ReactNode;
     /**
@@ -222,5 +222,9 @@ export declare type ActionSheetProps = {
      * Event called when the position of the ActionSheet changes. When the `position` value is 0, it means that the ActionSheet has reached top.
      */
     onChange?: (position: number, height: number) => void;
+    /**
+     * additional props to pass to the backdrop element. Useful for adding custom accessibility props.
+     */
+    backdropProps?: Partial<TouchableOpacityProps>;
 };
 //# sourceMappingURL=types.d.ts.map
