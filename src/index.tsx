@@ -13,6 +13,7 @@ import {
   BackHandler,
   Dimensions,
   Easing,
+  GestureResponderEvent,
   LayoutChangeEvent,
   LayoutRectangle,
   Modal,
@@ -97,6 +98,7 @@ export default forwardRef<ActionSheetRef, ActionSheetProps>(
       closeOnTouchBackdrop = true,
       drawUnderStatusBar = false,
       gestureEnabled = false,
+      onTouchBackdrop,
       isModal = true,
       snapPoints = [100],
       initialSnapIndex = 0,
@@ -620,7 +622,8 @@ export default forwardRef<ActionSheetRef, ActionSheetProps>(
       ],
     );
 
-    const onTouch = () => {
+    const onTouch = (event: GestureResponderEvent) => {
+      onTouchBackdrop?.(event);
       if (closeOnTouchBackdrop && closable) {
         hideSheet();
       }

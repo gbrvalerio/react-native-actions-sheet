@@ -1,5 +1,5 @@
 import React from 'react';
-import {Animated, ViewStyle} from 'react-native';
+import {Animated, GestureResponderEvent, ViewStyle} from 'react-native';
 
 export type ActionSheetProps = {
   children: React.ReactNode;
@@ -106,6 +106,13 @@ export type ActionSheetProps = {
    * Default: `"black"`
    */
   overlayColor?: string;
+
+  /**
+   * Callback when user touches the backdrop. Includes the GestureResponderEvent.
+   *
+   * Default: undefined
+   */
+  onTouchBackdrop?: (event: GestureResponderEvent) => void;
 
   /**
    * Keep the header always visible even when gestures are disabled.
